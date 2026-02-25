@@ -314,6 +314,11 @@
             $('<div></div>').appendTo(line).valueSpinner({ canEdit: true, labelText: 'Cyanuric Acid', fmtMask: "#,##0", emptyMask: "---", binding: binding + 'cyanuricAcid', min: 0, max: 201, step: 1, units: 'ppm', inputAttrs: { maxlength: 4 }, labelAttrs: { style: { width: '8.3rem', marginRight: '.25rem' } } });
             line = $('<div></div>').appendTo(grpIndex);
             $('<div></div>').appendTo(line).valueSpinner({ canEdit: true, labelText: 'Borates', fmtMask: "#,##0", emptyMask: "---", binding: binding + 'borates', min: 0, max: 201, step: 1, units: 'ppm', inputAttrs: { maxlength: 4 }, labelAttrs: { style: { width: '8.3rem', marginRight: '.25rem' } } });
+            
+            var grpMixing = $('<fieldset></fieldset>').css({ display: 'inline-block', verticalAlign: 'top' }).appendTo(el);
+            $('<legend></legend>').text('Mixing Options').appendTo(grpMixing);
+            line = $('<div></div>').appendTo(grpMixing);
+            $('<div></div>').appendTo(line).checkbox({ labelText: 'Single Mixing Period', binding: binding + 'singleMixPeriod' }).attr('title', 'Check this box to prevent simultaneous chemical dosing during mixing periods. Only one chemical (pH or ORP) will mix at a time.');
         }
     });
     $.widget('pic.pnlChemPhSettings', {
@@ -1688,6 +1693,8 @@
             $('<div></div>').appendTo(line).valueSpinner({ canEdit: true, binding: 'mixingTimeMinutes', labelText: 'Minutes', min: 0, max: 59, dataType: 'number', labelAttrs: { style: { display: 'none' } }, inputAttrs: { style: { width: '2.1rem' } }, style: { marginLeft: '.15rem' }, units: 'min' });
             line = $('<div></div>').appendTo(grpDose);
             $('<div></div>').appendTo(line).checkbox({ labelText: 'Mix only when flow detected', binding: 'flowOnlyMixing' }).css({ }).attr('title', 'Check this box to only mix chemicals when flow is detected.');
+            line = $('<div></div>').appendTo(grpDose);
+            $('<div></div>').appendTo(line).checkbox({ labelText: 'Single Mixing Period', binding: 'singleMixPeriod' }).css({ }).attr('title', 'Check this box to prevent other dosers from dispensing chemicals while this doser is in its mixing period.');
             line = $('<div></div>').appendTo(grpDose).addClass('pnl-dose-delay');
             $('<hr></hr>').appendTo(line).css({ margin: '3px' });
             $('<div></div>').appendTo(line).valueSpinner({ canEdit: true, binding: 'maxDailyVolume', labelText: 'Max limit per rolling 24 hours', min: 0, max: 9999, dataType: 'number', fmtMask: '#,##0', labelAttrs: { style: { marginRight: '.15rem' } }, inputAttrs: { style: { width: '3.7rem' } }, units: 'mL' });
