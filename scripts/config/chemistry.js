@@ -1688,6 +1688,8 @@
             $('<div></div>').appendTo(line).valueSpinner({ canEdit: true, binding: 'mixingTimeMinutes', labelText: 'Minutes', min: 0, max: 59, dataType: 'number', labelAttrs: { style: { display: 'none' } }, inputAttrs: { style: { width: '2.1rem' } }, style: { marginLeft: '.15rem' }, units: 'min' });
             line = $('<div></div>').appendTo(grpDose);
             $('<div></div>').appendTo(line).checkbox({ labelText: 'Mix only when flow detected', binding: 'flowOnlyMixing' }).css({ }).attr('title', 'Check this box to only mix chemicals when flow is detected.');
+            line = $('<div></div>').appendTo(grpDose);
+            $('<div></div>').appendTo(line).checkbox({ labelText: 'Single mix period', binding: 'singleMixPeriod' }).attr('title', 'Check this box to allow only one doser to run its mixing period at a time.');
             line = $('<div></div>').appendTo(grpDose).addClass('pnl-dose-delay');
             $('<hr></hr>').appendTo(line).css({ margin: '3px' });
             $('<div></div>').appendTo(line).valueSpinner({ canEdit: true, binding: 'maxDailyVolume', labelText: 'Max limit per rolling 24 hours', min: 0, max: 9999, dataType: 'number', fmtMask: '#,##0', labelAttrs: { style: { marginRight: '.15rem' } }, inputAttrs: { style: { width: '3.7rem' } }, units: 'mL' });
