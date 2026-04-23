@@ -303,6 +303,8 @@
                 inputAttrs: { style: { width: '3.5rem' } },
                 labelAttrs: { style: { width: '6.4rem', marginRight: '.25rem' } }
             });
+            line = $('<div></div>').appendTo(grpSetpoints);
+            $('<div></div>').appendTo(line).checkbox({ labelText: 'Single mix period', binding: binding + 'singleMixPeriod' }).attr('title', 'Check this box to prevent pH and ORP from mixing at the same time.');
 
             var grpIndex = $('<fieldset></fieldset>').css({ display: 'inline-block', verticalAlign: 'top' }).appendTo(el);
             $('<legend></legend>').text('Index Values').appendTo(grpIndex);
